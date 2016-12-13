@@ -42,6 +42,12 @@ module OmniAuth
       def raw_info
         @raw_info ||= access_token.get('/v1/user').parsed
       end
+
+      protected
+
+      def build_access_token
+        client.auth_code.get_token(request.params['code'])
+      end
     end
   end
 end
