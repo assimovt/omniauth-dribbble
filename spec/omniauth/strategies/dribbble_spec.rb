@@ -27,7 +27,7 @@ describe OmniAuth::Strategies::Dribbble do
 
   context '#raw_info' do
     it 'uses absolute paths' do
-      access_token.should_receive(:get).with('/v1/user').and_return(response)
+      access_token.should_receive(:get).with('/v2/user').and_return(response)
       expect(subject.raw_info).to eq(parsed_response)
     end
   end
